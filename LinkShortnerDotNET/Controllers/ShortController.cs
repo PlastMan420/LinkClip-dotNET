@@ -6,6 +6,7 @@ using LinkShortnerDotNET.Data;
 using LinkShortnerDotNET.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace LinkShortnerDotNET.Controllers
 {
@@ -14,25 +15,32 @@ namespace LinkShortnerDotNET.Controllers
     public class ShortController : ControllerBase
     {
         private readonly DataContext _context; // --> naming convention. add underscore to private data.
-
-        public ShortController(DataContext context)
+        private readonly IBaseRepository _repo;
+        public ShortController(IBaseRepository repo, DataContext context)
         {
             this._context = context;
+            this._repo = repo;
         }
 
-        [HttpGet("index")]
+        [HttpGet("{id}")]
         [AllowAnonymous]
-        public string Index()
+        public IActionResult FetchId(string id)
         {
-            return "This is Index action method of StudentController";
+            var Set = _repo.LookUp(id);
+            if (Set == null)
+                return NotFound();
+
+            string Url = Set.Result.Url;
+            //Response.Redirect(Url, true);
+            return Ok(Url);
+            
         }
 
         [HttpPost("link")] // api/short/link
         [AllowAnonymous]
         public async Task<IActionResult> link(LinkSet Set) 
         {
-            await _context.Links.AddAsync(Set);
-            await _context.SaveChangesAsync();
+            await _repo.StoreId(Set);
             return StatusCode(201);
         }
     }

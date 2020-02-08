@@ -8591,11 +8591,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mosta\\source\\repos\\linkshort\\LinkShortnerDotNET\\LinkShortnerDotNET.csproj",
+      "projectUniqueName": "c:\\Users\\mosta\\source\\repos\\linkshort\\LinkShortnerDotNET\\LinkShortnerDotNET.csproj",
       "projectName": "LinkShortnerDotNET",
-      "projectPath": "C:\\Users\\mosta\\source\\repos\\linkshort\\LinkShortnerDotNET\\LinkShortnerDotNET.csproj",
+      "projectPath": "c:\\Users\\mosta\\source\\repos\\linkshort\\LinkShortnerDotNET\\LinkShortnerDotNET.csproj",
       "packagesPath": "C:\\Users\\mosta\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mosta\\source\\repos\\linkshort\\LinkShortnerDotNET\\obj\\",
+      "outputPath": "c:\\Users\\mosta\\source\\repos\\linkshort\\LinkShortnerDotNET\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
