@@ -41,7 +41,7 @@ namespace LinkShortnerDotNET.Controllers
         public async Task<IActionResult> link(LinkSet Set) 
         {
             await _repo.StoreId(Set);
-            return StatusCode(201);
+            return Ok(Set.LinkId);
         }
     }
 }

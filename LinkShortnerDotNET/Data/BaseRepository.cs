@@ -26,6 +26,7 @@ namespace LinkShortnerDotNET.Data
 
         public async Task StoreId(LinkSet Set)
         {
+            Set.LinkId = ToolKit.RandomString(8);
             await _context.Links.AddAsync(Set);
             await _context.SaveChangesAsync().ConfigureAwait(false);
 
